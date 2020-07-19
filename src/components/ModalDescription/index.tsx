@@ -16,6 +16,7 @@ const ModalDescription: React.FC<Props> = ({ modalOpen }) => {
       width: "320px",
       height: "600px",
       marginTop: "32px",
+      marginBottom: "32px",
       marginLeft: "auto",
       marginRight: "auto",
       borderRadius: "8px",
