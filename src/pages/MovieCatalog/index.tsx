@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsTrash, BsPencil } from "react-icons/bs";
 
 import Header from "../../components/Header";
+import ModalDescription from "../../components/ModalDescription";
 
 import harrypotter from "../../assets/hp-chamber-of-secrets.jpg";
 import "./styles.css";
 
 const MovieCatalog = () => {
+  const [modalOpen, setModalOpen] = useState(true);
+
   return (
     <div>
       <Header />
+      <ModalDescription modalOpen={modalOpen} />
       <main className="movie-catalog">
         <ul>
           <li className="box-movie-catalog">

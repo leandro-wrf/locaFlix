@@ -1,0 +1,171 @@
+.modal-description {
+  background-color: #26282b;
+
+  padding: 16px;
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.overlayModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #353941c0;
+}
+
+.modal-description-center {
+  height: 150px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-description-center h3 {
+  color: #eeeeee;
+
+  margin-bottom: 16px;
+
+  font-family: "Righteous", cursive;
+
+  text-align: center;
+}
+
+.modal-description-center button {
+  background-color: transparent;
+
+  position: fixed;
+  top: 20px;
+  right: 18px;
+
+  border-style: none;
+  outline: none;
+}
+
+.modal-description-center p {
+  color: #eeeeee;
+
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: justify;
+}
+
+.modal-description-director {
+  margin-top: 8px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-description-director {
+  color: #eeeeee;
+
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.modal-description-director span {
+  color: #eeeeee;
+
+  margin-top: 8px;
+
+  font-family: "Ubuntu", sans-serif;
+  font-size: 18px;
+}
+
+.modal-description-data {
+  margin-top: 24px;
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.modal-description-data-genres,
+.modal-description-data-languages,
+.modal-description-data-subtitles {
+  margin-bottom: 8px;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-description-data-genres label,
+.modal-description-data-languages label,
+.modal-description-data-subtitles label {
+  color: #eeeeee;
+
+  margin-right: 8px;
+
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.modal-description-data-genres ul,
+.modal-description-data-languages ul,
+.modal-description-data-subtitles ul {
+  list-style: none;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-description-data-genres ul li,
+.modal-description-data-languages ul li,
+.modal-description-data-subtitles ul li {
+  color: #eeeeee;
+
+  margin-right: 4px;
+
+  font-family: "Ubuntu", sans-serif;
+  font-size: 14px;
+}
+
+.modal-description-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-description-links-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-description-links-icons span {
+  color: #eeeeee;
+
+  margin-top: 5px;
+  margin-right: 8px;
+
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.modal-description-links button {
+  background-color: #5f85db;
+  color: #eeeeee;
+
+  padding: 8px;
+
+  border-style: none;
+  border-radius: 4px;
+  outline: none;
+
+  font-family: "Ubuntu", sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+}
