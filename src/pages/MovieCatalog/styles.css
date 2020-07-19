@@ -16,7 +16,9 @@
   padding: 8px;
 
   border-radius: 8px;
+  border-style: none;
   box-shadow: 4px 4px 8px #000000a0;
+  outline: none;
 
   display: flex;
   flex-direction: row;
@@ -40,25 +42,40 @@
   margin-bottom: 16px;
 
   font-family: "Righteous", cursive;
+  text-align: left;
 }
 
 .box-movie-description p {
   color: #eeeeee;
 
+  height: 120px;
+
   font-size: 13px;
   font-family: "Ubuntu", sans-serif;
   font-weight: 500;
 
+  overflow: hidden;
+
   text-align: justify;
+  text-overflow: ellipsis;
 
   display: flex;
-  flex: 1;
 }
 
 .box-movie-description-icons {
   padding-right: 8px;
 
   display: flex;
+  flex: 1;
   justify-content: flex-end;
   align-items: center;
+}
+
+.box-movie-description-icons button {
+  background-color: transparent;
+
+  margin-left: 8px;
+
+  border-style: none;
+  outline: none;
 }

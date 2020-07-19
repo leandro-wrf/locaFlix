@@ -7,10 +7,14 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import "./styles.css";
 
 interface Props {
-  modalOpen: boolean;
+  modalDescriptionOpen: boolean;
+  setModalDescriptionOpen: any;
 }
 
-const ModalDescription: React.FC<Props> = ({ modalOpen }) => {
+const ModalDescription: React.FC<Props> = ({
+  modalDescriptionOpen,
+  setModalDescriptionOpen,
+}) => {
   const customStyles = {
     content: {
       width: "320px",
@@ -24,17 +28,21 @@ const ModalDescription: React.FC<Props> = ({ modalOpen }) => {
     },
   };
 
+  function handleCloseModal() {
+    setModalDescriptionOpen(false);
+  }
+
   return (
     <Modal
       className="modal-description"
       overlayClassName="overlayModal"
-      isOpen={modalOpen}
+      isOpen={modalDescriptionOpen}
       contentLabel="Description"
       style={customStyles}
     >
       <div className="modal-description-center">
         <h3>Harry Potter Chamber of Secrets</h3>
-        <button>
+        <button onClick={handleCloseModal}>
           <AiFillCloseCircle size={32} color="#eeeeee" />
         </button>
         <p>
@@ -73,15 +81,19 @@ const ModalDescription: React.FC<Props> = ({ modalOpen }) => {
             <li>English</li>
           </ul>
         </div>
+
+        <label className="modal-description-data-label">Year 2002</label>
       </div>
 
       <div className="modal-description-links">
         <button>LocarFilme</button>
 
         <div className="modal-description-links-icons">
-          <FaImdb className="button-tmp" size={24} color="#eeeeee" />
+          <a href="https://google.com">
+            <FaImdb size={32} color="#eeeeee" />
+          </a>
           <span>8.9</span>
-          <BsStarFill size={24} color="#eeeeee" />
+          <BsStarFill size={32} color="#ffff00" />
         </div>
       </div>
     </Modal>
