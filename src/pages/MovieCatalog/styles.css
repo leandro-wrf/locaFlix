@@ -1,0 +1,64 @@
+.movie-catalog {
+  margin-top: 32px;
+  margin-left: 8px;
+  margin-right: 8px;
+
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.box-movie-catalog {
+  background-color: #26282b;
+
+  margin-bottom: 16px;
+
+  padding: 8px;
+
+  border-radius: 8px;
+  box-shadow: 4px 4px 8px #000000a0;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.box-movie-catalog img {
+  width: 120px;
+}
+
+.box-movie-description {
+  margin-left: 8px;
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.box-movie-description label {
+  color: #eeeeee;
+
+  margin-bottom: 16px;
+
+  font-family: "Righteous", cursive;
+}
+
+.box-movie-description p {
+  color: #eeeeee;
+
+  font-size: 13px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+
+  text-align: justify;
+
+  display: flex;
+  flex: 1;
+}
+
+.box-movie-description-icons {
+  padding-right: 8px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
