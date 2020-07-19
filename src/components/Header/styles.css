@@ -19,6 +19,52 @@
   font-family: "Righteous", cursive;
 }
 
-.button-tmp {
-  margin-right: 16px;
+.header-locaflix button {
+  background: transparent;
+
+  margin-right: 8px;
+
+  border-style: none;
+  outline: none;
+}
+
+.header-search {
+  background-color: #26282b;
+
+  height: 70px;
+
+  padding-left: 16px;
+  padding-right: 16px;
+
+  box-shadow: 4px 0px 8px #000000c0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-search input {
+  height: 32px;
+
+  padding-left: 16px;
+
+  border-style: none;
+  border-radius: 16px;
+  outline: none;
+
+  display: flex;
+  flex: 1;
+}
+
+.header-search input {
+  font-family: "Ubuntu", sans-serif;
+}
+
+.header-search button {
+  background: transparent;
+
+  margin-left: 8px;
+
+  border-style: none;
+  outline: none;
 }
