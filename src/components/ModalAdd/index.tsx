@@ -5,10 +5,11 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import "./styles.css";
 
 interface Props {
-  modalOpenAdd: boolean;
+  modalAddOpen: boolean;
+  setModalAddOpen: any;
 }
 
-const ModalAdd: React.FC<Props> = ({ modalOpenAdd }) => {
+const ModalAdd: React.FC<Props> = ({ modalAddOpen, setModalAddOpen }) => {
   const customStyle = {
     content: {
       width: "320px",
@@ -20,15 +21,25 @@ const ModalAdd: React.FC<Props> = ({ modalOpenAdd }) => {
     },
   };
 
+  function handleCloseModal() {
+    setModalAddOpen(false);
+  }
+
+  function handleAddMovie() {
+    /// .... code
+
+    setModalAddOpen(false);
+  }
+
   return (
     <Modal
       className="modal-movie-add"
       overlayClassName="modal-overlay"
       style={customStyle}
-      isOpen={modalOpenAdd}
+      isOpen={modalAddOpen}
     >
       <h3>Add Movie</h3>
-      <button className="modal-add-button-close">
+      <button onClick={handleCloseModal} className="modal-add-button-close">
         <AiFillCloseCircle size={32} color="#eeeeee" />
       </button>
 
@@ -42,7 +53,7 @@ const ModalAdd: React.FC<Props> = ({ modalOpenAdd }) => {
         <input placeholder="Subtitles" type="text" />
         <input placeholder="Year Release" type="text" />
 
-        <button>ADD</button>
+        <button onClick={handleCloseModal}>ADD</button>
       </form>
     </Modal>
   );
