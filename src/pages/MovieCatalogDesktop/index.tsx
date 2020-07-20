@@ -16,7 +16,19 @@ const MovieCatalogDesktop = () => {
   const [modalDescriptionShow, setModalDescriptionShow] = useState(false);
   const [modalEditShow, setModalEditShow] = useState(false);
 
-  const [movieDescription, setMovieDescription] = useState<Movie>();
+  const [movieDescription, setMovieDescription] = useState<Movie>({
+    id: 0,
+    urlImage: "",
+    title: "",
+    description: "",
+    director: "",
+    genres: "",
+    languages: "",
+    subtitles: "",
+    urlImdb: "",
+    release: "",
+    reviews: "",
+  });
 
   useEffect(() => {
     async function loadMovies() {
