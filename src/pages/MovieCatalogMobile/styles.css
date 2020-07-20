@@ -1,4 +1,4 @@
-.movie-catalog {
+.movie-catalog-mobile {
   margin-top: 32px;
   margin-left: 8px;
   margin-right: 8px;
@@ -8,47 +8,18 @@
   justify-content: center;
 }
 
-.movie-catalog ul {
+.movie-catalog-mobile ul {
   list-style: none;
 
   display: flex;
   justify-content: center;
 }
 
-.movie-catalog-desktop {
-  list-style: none;
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.movie-catalog-desktop li {
-  width: 300px;
-
-  margin: 16px;
-}
-
-.movie-catalog-desktop-sinopse {
-  color: #eeeeee;
-
-  width: 100%;
-
-  font-size: 13px;
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 500;
-
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
-  overflow-y: hidden;
-}
-
-.movie-catalog ul li {
+.movie-catalog-mobile ul li {
   margin-bottom: 32px;
 }
 
-.box-movie-catalog {
+.box-movie-catalog-mobile {
   background-color: #26282b;
 
   width: 100%;
@@ -66,11 +37,11 @@
   flex-direction: row;
 }
 
-.box-movie-catalog img {
+.box-movie-catalog-mobile img {
   width: 120px;
 }
 
-.box-movie-description {
+.box-movie-description-mobile {
   margin-left: 8px;
 
   display: flex;
@@ -78,7 +49,7 @@
   flex-direction: column;
 }
 
-.box-movie-description label {
+.box-movie-description-mobile label {
   color: #eeeeee;
 
   margin-bottom: 16px;
@@ -87,19 +58,22 @@
   text-align: left;
 }
 
-.box-movie-description p {
+.box-movie-description-mobile p {
   color: #eeeeee;
 
-  height: 120px;
+  width: 100%;
 
   font-size: 13px;
   font-family: "Ubuntu", sans-serif;
   font-weight: 500;
 
-  text-align: justify;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow-y: hidden;
 }
 
-.box-movie-description-icons {
+.box-movie-description-icons-mobile {
   margin-top: -54px;
   margin-right: 16px;
 
@@ -109,7 +83,7 @@
   align-items: center;
 }
 
-.box-movie-description-icons button {
+.box-movie-description-icons-mobile button {
   background-color: transparent;
 
   margin-left: 16px;

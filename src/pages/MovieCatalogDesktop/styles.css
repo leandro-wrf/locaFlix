@@ -1,0 +1,97 @@
+.movie-catalog-desktop {
+  margin-top: 32px;
+  margin-left: 8px;
+  margin-right: 8px;
+
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.movie-catalog-desktop ul {
+  list-style: none;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.movie-catalog-desktop ul li {
+  width: 300px;
+
+  margin: 16px;
+}
+
+.box-movie-catalog-desktop {
+  background-color: #26282b;
+
+  width: 100%;
+
+  margin-bottom: 16px;
+
+  padding: 8px;
+
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: 4px 4px 8px #000000a0;
+  outline: none;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.box-movie-catalog-desktop img {
+  width: 120px;
+}
+
+.box-movie-description-desktop {
+  margin-left: 8px;
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.box-movie-description-desktop label {
+  color: #eeeeee;
+
+  margin-bottom: 16px;
+
+  font-family: "Righteous", cursive;
+  text-align: left;
+}
+
+.box-movie-description-desktop p {
+  color: #eeeeee;
+
+  width: 100%;
+
+  font-size: 13px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow-y: hidden;
+}
+
+.box-movie-description-icons-desktop {
+  margin-top: -54px;
+  margin-right: 16px;
+
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.box-movie-description-icons-desktop button {
+  background-color: transparent;
+
+  margin-left: 16px;
+
+  border-style: none;
+  outline: none;
+}
