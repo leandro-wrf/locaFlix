@@ -1,9 +1,11 @@
-import React from 'react';
+import React from "react";
+
+import MovieCatalog from "./pages/MovieCatalog";
 
 function App() {
   return (
-    <div className="App">
-      
+    <div className="app">
+      <MovieCatalog />
     </div>
   );
 }
