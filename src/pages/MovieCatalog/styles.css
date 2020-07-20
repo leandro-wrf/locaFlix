@@ -8,6 +8,10 @@
   justify-content: center;
 }
 
+.movie-catalog ul {
+  list-style: none;
+}
+
 .movie-catalog ul li {
   margin-bottom: 32px;
 }
