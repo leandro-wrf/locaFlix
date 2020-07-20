@@ -1,15 +1,19 @@
 .modal-description {
   background-color: #26282b;
 
+  height: 100vh;
+
   padding: 16px;
 
   display: flex;
-  flex: 1;
+
   flex-direction: column;
 }
 
 .overlayModal {
   background-color: #353941c0;
+
+  padding-bottom: 32px;
 
   position: absolute;
   top: 0;
@@ -17,7 +21,7 @@
   right: 0;
   bottom: 0;
 
-  overflow-y: auto;
+  overflow: auto;
 }
 
 .modal-description-center {

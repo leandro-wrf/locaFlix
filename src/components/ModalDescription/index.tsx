@@ -22,9 +22,9 @@ const ModalDescription: React.FC<Props> = ({
   const customStyleModalDescription = {
     content: {
       width: "320px",
-      height: "600px",
+      height: "100%",
       marginTop: "32px",
-      marginBottom: "32px",
+      paddingBottom: "32px",
       marginLeft: "auto",
       marginRight: "auto",
       borderRadius: "8px",
