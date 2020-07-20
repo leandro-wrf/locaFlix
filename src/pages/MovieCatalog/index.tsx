@@ -1,25 +1,27 @@
 import React, { useState } from "react";
-import { BsTrash, BsPencil } from "react-icons/bs";
+import { BsTrashFill, BsPencilSquare } from "react-icons/bs";
 
 import Header from "../../components/Header";
 import ModalDescription from "../../components/ModalDescription";
+import ModalEdit from "../../components/ModalEdit";
 
 import harrypotter from "../../assets/hp-chamber-of-secrets.jpg";
 import "./styles.css";
 
 const MovieCatalog = () => {
   const [modalOpenDescription, setModalDescriptionOpen] = useState(false);
+  const [modalEditOpen, setModalEditOpen] = useState(false);
 
   function handleOpenModalDescription() {
     setModalDescriptionOpen(true);
   }
 
   function handleOpenModalEdit() {
-    // code...
+    setModalEditOpen(true);
   }
 
   function handleDeleteMovie() {
-    // code...
+    alert("Movie removed!");
   }
 
   return (
@@ -28,6 +30,10 @@ const MovieCatalog = () => {
       <ModalDescription
         modalDescriptionOpen={modalOpenDescription}
         setModalDescriptionOpen={setModalDescriptionOpen}
+      />
+      <ModalEdit
+        modalEditOpen={modalEditOpen}
+        setModalEditOpen={setModalEditOpen}
       />
       <main className="movie-catalog">
         <ul>
@@ -44,18 +50,18 @@ const MovieCatalog = () => {
                   Isto contém uma leve descrição do filme. Apenas para fim de
                   testes, espero que consiga pelo menos umas três linhas.
                 </p>
-
-                <div className="box-movie-description-icons">
-                  <button onClick={handleDeleteMovie}>
-                    <BsTrash className="button-tmp" size={20} color="#eeeeee" />
-                  </button>
-
-                  <button onClick={handleOpenModalEdit}>
-                    <BsPencil size={20} color="#eeeeee" />
-                  </button>
-                </div>
               </div>
             </button>
+
+            <div className="box-movie-description-icons">
+              <button onClick={handleDeleteMovie}>
+                <BsTrashFill className="button-tmp" size={24} color="#eeeeee" />
+              </button>
+
+              <button onClick={handleOpenModalEdit}>
+                <BsPencilSquare size={24} color="#eeeeee" />
+              </button>
+            </div>
           </li>
         </ul>
       </main>

@@ -63,7 +63,8 @@
 }
 
 .box-movie-description-icons {
-  padding-right: 8px;
+  margin-top: -54px;
+  margin-right: 16px;
 
   display: flex;
   flex: 1;
@@ -74,7 +75,7 @@
 .box-movie-description-icons button {
   background-color: transparent;
 
-  margin-left: 8px;
+  margin-left: 16px;
 
   border-style: none;
   outline: none;
