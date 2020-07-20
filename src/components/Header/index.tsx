@@ -1,23 +1,13 @@
 import React, { useState } from "react";
 import { BsPlusCircleFill, BsSearch } from "react-icons/bs";
 
+import { Movie } from "../../types/typesApplication";
+
 import ModalAdd from "../ModalAdd";
 
 import api from "../../service/api";
 
 import "./styles.css";
-
-interface Movie {
-  id: number;
-  title: string;
-  sinopse: string;
-  director: string;
-  genres: string;
-  languages: string;
-  subtitles: string;
-  release: number;
-  reviews: number;
-}
 
 interface Props {
   movies: Movie[];
@@ -26,11 +16,11 @@ interface Props {
 
 const Header: React.FC<Props> = ({ movies, setMovies }) => {
   const [search, setSearch] = useState("");
-  const [classActive, setClassActive] = useState(false);
-  const [modalAddOpen, setModalAddOpen] = useState(false);
+  const [componentActive, setComponentActive] = useState(false);
+  const [modalAddShow, setModalAddShow] = useState(false);
 
-  function handleShowModal() {
-    setModalAddOpen(true);
+  function handleModalShow() {
+    setModalAddShow(true);
   }
 
   async function handleSearch() {
@@ -40,22 +30,22 @@ const Header: React.FC<Props> = ({ movies, setMovies }) => {
       setMovies(response.data);
     }
 
-    if (classActive && !search.trim()) {
+    if (componentActive && !search.trim()) {
       const response = await api.get("/movies");
       setMovies(response.data);
 
-      return setClassActive(false);
+      return setComponentActive(false);
     }
 
-    setClassActive(true);
+    setComponentActive(true);
   }
 
-  if (!classActive) {
+  if (!componentActive) {
     return (
       <>
         <ModalAdd
-          modalAddOpen={modalAddOpen}
-          setModalAddOpen={setModalAddOpen}
+          modalAddShow={modalAddShow}
+          setModalAddShow={setModalAddShow}
         />
         <header className="header-locaflix">
           <h1>LOCAFLIX</h1>
@@ -64,7 +54,7 @@ const Header: React.FC<Props> = ({ movies, setMovies }) => {
             <button onClick={handleSearch}>
               <BsSearch size={25} color="#eeeeee" />
             </button>
-            <button onClick={handleShowModal}>
+            <button onClick={handleModalShow}>
               <BsPlusCircleFill size={25} color="#eeeeee" />
             </button>
           </div>
