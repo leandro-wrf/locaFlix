@@ -1,0 +1,48 @@
+{
+  "movies": [
+    {
+      "id": 0,
+      "title": "Harry potter chamber of secrets",
+      "sinopse": "An ancient prophecy seems to be coming true when a mysterious presence begins stalking the corridors of a school of magic and leaving its victims paralyzed.",
+      "director": "Chris Columbus",
+      "genres": "Adventure, Family, Fantasy.",
+      "languages": "English, Portuguese.",
+      "subtitles": "English, Portuguese.",
+      "release": 2002,
+      "reviews": 7.4
+    },
+    {
+      "id": 2,
+      "title": "Harry potter chamber of secrets",
+      "sinopse": "An ancient prophecy seems to be coming true when a mysterious presence begins stalking the corridors of a school of magic and leaving its victims paralyzed.",
+      "director": "Chris Columbus",
+      "genres": "Adventure, Family, Fantasy.",
+      "languages": "English, Portuguese.",
+      "subtitles": "English, Portuguese.",
+      "release": 2002,
+      "reviews": 7.4
+    },
+    {
+      "id": 3,
+      "title": "Harry potter chamber of secrets",
+      "sinopse": "An ancient prophecy seems to be coming true when a mysterious presence begins stalking the corridors of a school of magic and leaving its victims paralyzed.",
+      "director": "Chris Columbus",
+      "genres": "Adventure, Family, Fantasy.",
+      "languages": "English, Portuguese.",
+      "subtitles": "English, Portuguese.",
+      "release": 2002,
+      "reviews": 7.4
+    },
+    {
+      "id": 4,
+      "title": "Harry potter chamber of secrets",
+      "sinopse": "An ancient prophecy seems to be coming true when a mysterious presence begins stalking the corridors of a school of magic and leaving its victims paralyzed.",
+      "director": "Chris Columbus",
+      "genres": "Adventure, Family, Fantasy.",
+      "languages": "English, Portuguese.",
+      "subtitles": "English, Portuguese.",
+      "release": 2002,
+      "reviews": 7.4
+    }
+  ]
+}
