@@ -53,6 +53,7 @@ const ModalDescription: React.FC<Props> = ({
       isOpen={modalDescriptionOpen}
       contentLabel="Description"
       style={customStyles}
+      ariaHideApp={false}
     >
       <div className="modal-description-center">
         <h3>{movieDescription.title}</h3>

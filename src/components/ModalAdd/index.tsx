@@ -60,6 +60,7 @@ const ModalAdd: React.FC<Props> = ({ modalAddOpen, setModalAddOpen }) => {
       overlayClassName="modal-overlay"
       style={customStyle}
       isOpen={modalAddOpen}
+      ariaHideApp={false}
     >
       <h3>Add Movie</h3>
       <button onClick={handleCloseModal} className="modal-add-button-close">
