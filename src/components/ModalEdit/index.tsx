@@ -2,43 +2,34 @@ import React, { useState, SetStateAction } from "react";
 import Modal from "react-modal";
 import { AiFillCloseCircle } from "react-icons/ai";
 
+import { Movie } from "../../types/typesApplication";
+
 import api from "../../service/api";
 
 import "./styles.css";
 
-interface Movie {
-  id: number;
-  title: string;
-  sinopse: string;
-  director: string;
-  genres: string;
-  languages: string;
-  subtitles: string;
-  release: number;
-  reviews: number;
-}
-
 interface Props {
   movieDescription: Movie;
-  modalEditOpen: boolean;
-  setModalEditOpen: any;
+  modalEditShow: boolean;
+  setModalEditShow: any;
 }
 
 const ModalEdit: React.FC<Props> = ({
-  modalEditOpen,
-  setModalEditOpen,
+  modalEditShow,
+  setModalEditShow,
   movieDescription,
 }) => {
   const [urlImage, setUrlImage] = useState("");
   const [title, setTitle] = useState("");
-  const [sinopse, setSinopse] = useState("");
+  const [description, setDescription] = useState("");
   const [director, setDirector] = useState("");
   const [genres, setGenres] = useState("");
   const [languages, setLanguages] = useState("");
   const [subtitles, setSubtitles] = useState("");
+  const [urlImdb, setUrlImdb] = useState("");
   const [release, setRelease] = useState("");
 
-  const customStyle = {
+  const customStyleModalEdit = {
     content: {
       width: "320px",
       marginTop: "32px",
@@ -50,32 +41,35 @@ const ModalEdit: React.FC<Props> = ({
   };
 
   function handleCloseModal() {
-    setModalEditOpen(false);
+    setModalEditShow(false);
   }
 
   async function handleEditMovie() {
     const data = {
+      urlImage: urlImage === "" ? movieDescription.urlImage : urlImage,
       title: title === "" ? movieDescription.title : title,
-      sinopse: sinopse === "" ? movieDescription.sinopse : sinopse,
+      description:
+        description === "" ? movieDescription.description : description,
       director: director === "" ? movieDescription.director : director,
       genres: genres === "" ? movieDescription.genres : genres,
       languages: languages === "" ? movieDescription.languages : languages,
       subtitles: subtitles === "" ? movieDescription.subtitles : subtitles,
+      urlImdb: urlImdb === "" ? movieDescription.urlImdb : urlImdb,
       release: release === "" ? movieDescription.release : release,
       reviews: movieDescription.reviews,
     };
 
     await api.put(`/movies/${movieDescription.id}`, data);
 
-    setModalEditOpen(false);
+    setModalEditShow(false);
   }
 
   return (
     <Modal
       className="modal-movie-edit"
       overlayClassName="modal-edit-overlay"
-      style={customStyle}
-      isOpen={modalEditOpen}
+      style={customStyleModalEdit}
+      isOpen={modalEditShow}
       ariaHideApp={false}
     >
       <h3>Edit Movie</h3>
@@ -85,7 +79,7 @@ const ModalEdit: React.FC<Props> = ({
 
       <form onSubmit={handleEditMovie} className="modal-movie-edit-data">
         <input
-          placeholder={movieDescription.title}
+          placeholder={movieDescription.urlImage}
           type="text"
           value={urlImage}
           onChange={(e) => setUrlImage(e.target.value)}
@@ -97,10 +91,10 @@ const ModalEdit: React.FC<Props> = ({
           onChange={(e) => setTitle(e.target.value)}
         />
         <input
-          placeholder={movieDescription.sinopse}
+          placeholder={movieDescription.description}
           type="text"
-          value={sinopse}
-          onChange={(e) => setSinopse(e.target.value)}
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
         />
         <input
           placeholder={movieDescription.director}
@@ -127,13 +121,19 @@ const ModalEdit: React.FC<Props> = ({
           onChange={(e) => setSubtitles(e.target.value)}
         />
         <input
+          placeholder={movieDescription.urlImdb}
+          type="text"
+          value={urlImdb}
+          onChange={(e) => setUrlImdb(e.target.value)}
+        />
+        <input
           placeholder={String(movieDescription.release)}
           type="text"
           value={release}
           onChange={(e) => setRelease(e.target.value)}
         />
 
-        <button>UPDATE</button>
+        <button type="submit">UPDATE</button>
       </form>
     </Modal>
   );
