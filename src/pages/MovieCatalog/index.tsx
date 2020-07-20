@@ -1,26 +1,64 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BsTrashFill, BsPencilSquare } from "react-icons/bs";
 
 import Header from "../../components/Header";
 import ModalDescription from "../../components/ModalDescription";
 import ModalEdit from "../../components/ModalEdit";
 
+import api from "../../service/api";
+
 import harrypotter from "../../assets/hp-chamber-of-secrets.jpg";
 import "./styles.css";
 
+interface Movie {
+  id: number;
+  title: string;
+  sinopse: string;
+  director: string;
+  genres: string;
+  languages: string;
+  subtitles: string;
+  release: number;
+  reviews: number;
+}
+
 const MovieCatalog = () => {
+  const [movies, setMovies] = useState<Movie[]>([]);
+  const [movieDescription, setMovieDescription] = useState<Movie>({
+    id: 0,
+    title: "",
+    sinopse: "",
+    director: "",
+    genres: "",
+    languages: "",
+    subtitles: "",
+    release: 0,
+    reviews: 0,
+  });
   const [modalOpenDescription, setModalDescriptionOpen] = useState(false);
   const [modalEditOpen, setModalEditOpen] = useState(false);
 
-  function handleOpenModalDescription() {
+  useEffect(() => {
+    async function loadMovies() {
+      const response = await api.get("/movies");
+
+      setMovies(response.data);
+    }
+
+    loadMovies();
+  }, []);
+
+  function handleOpenModalDescription(movie: Movie) {
     setModalDescriptionOpen(true);
+    setMovieDescription(movie);
   }
 
   function handleOpenModalEdit() {
     setModalEditOpen(true);
   }
 
-  function handleDeleteMovie() {
+  async function handleDeleteMovie(movieID: number) {
+    await api.delete(`/movies/${movieID}`);
     alert("Movie removed!");
   }
 
@@ -30,6 +68,7 @@ const MovieCatalog = () => {
       <ModalDescription
         modalDescriptionOpen={modalOpenDescription}
         setModalDescriptionOpen={setModalDescriptionOpen}
+        movieDescription={movieDescription}
       />
       <ModalEdit
         modalEditOpen={modalEditOpen}
@@ -37,32 +76,35 @@ const MovieCatalog = () => {
       />
       <main className="movie-catalog">
         <ul>
-          <li>
-            <button
-              className="box-movie-catalog"
-              onClick={handleOpenModalDescription}
-            >
-              <img src={harrypotter} alt="harry-potter" />
+          {movies.map((movie) => (
+            <li key={movie.id}>
+              <button
+                className="box-movie-catalog"
+                onClick={() => handleOpenModalDescription(movie)}
+              >
+                <img src={harrypotter} alt="harry-potter" />
 
-              <div className="box-movie-description">
-                <label>Harry Potter Chamber of Secrets</label>
-                <p>
-                  Isto contém uma leve descrição do filme. Apenas para fim de
-                  testes, espero que consiga pelo menos umas três linhas.
-                </p>
+                <div className="box-movie-description">
+                  <label>{movie.title}</label>
+                  <p>{movie.sinopse}</p>
+                </div>
+              </button>
+
+              <div className="box-movie-description-icons">
+                <button onClick={() => handleDeleteMovie(movie.id)}>
+                  <BsTrashFill
+                    className="button-tmp"
+                    size={24}
+                    color="#eeeeee"
+                  />
+                </button>
+
+                <button onClick={handleOpenModalEdit}>
+                  <BsPencilSquare size={24} color="#eeeeee" />
+                </button>
               </div>
-            </button>
-
-            <div className="box-movie-description-icons">
-              <button onClick={handleDeleteMovie}>
-                <BsTrashFill className="button-tmp" size={24} color="#eeeeee" />
-              </button>
-
-              <button onClick={handleOpenModalEdit}>
-                <BsPencilSquare size={24} color="#eeeeee" />
-              </button>
-            </div>
-          </li>
+            </li>
+          ))}
         </ul>
       </main>
     </div>

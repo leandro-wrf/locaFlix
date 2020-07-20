@@ -40,7 +40,7 @@
 .modal-description-center button {
   background-color: transparent;
 
-  position: fixed;
+  position: absolute;
   top: 20px;
   right: 18px;
 
@@ -114,21 +114,29 @@
   font-weight: bold;
 }
 
-.modal-description-data-genres ul,
+/*.modal-description-data-genres ul,
 .modal-description-data-languages ul,
 .modal-description-data-subtitles ul {
   list-style: none;
 
   display: flex;
   flex-direction: row;
-}
+}*/
 
-.modal-description-data-genres ul li,
+/*.modal-description-data-genres ul li,
 .modal-description-data-languages ul li,
 .modal-description-data-subtitles ul li {
   color: #eeeeee;
 
   margin-right: 4px;
+
+  font-family: "Ubuntu", sans-serif;
+  font-size: 14px;
+}*/
+.modal-description-data-genres span,
+.modal-description-data-languages span,
+.modal-description-data-subtitles span {
+  color: #eeeeee;
 
   font-family: "Ubuntu", sans-serif;
   font-size: 14px;

@@ -6,12 +6,26 @@ import { AiFillCloseCircle } from "react-icons/ai";
 
 import "./styles.css";
 
+interface Movie {
+  id: number;
+  title: string;
+  sinopse: string;
+  director: string;
+  genres: string;
+  languages: string;
+  subtitles: string;
+  release: number;
+  reviews: number;
+}
+
 interface Props {
+  movieDescription: Movie;
   modalDescriptionOpen: boolean;
   setModalDescriptionOpen: any;
 }
 
 const ModalDescription: React.FC<Props> = ({
+  movieDescription,
   modalDescriptionOpen,
   setModalDescriptionOpen,
 }) => {
@@ -41,48 +55,37 @@ const ModalDescription: React.FC<Props> = ({
       style={customStyles}
     >
       <div className="modal-description-center">
-        <h3>Harry Potter Chamber of Secrets</h3>
+        <h3>{movieDescription.title}</h3>
         <button onClick={handleCloseModal}>
           <AiFillCloseCircle size={32} color="#eeeeee" />
         </button>
-        <p>
-          Isto contém uma leve descrição do filme. Apenas para fim de testes,
-          espero que consiga pelo menos umas três linhas.
-        </p>
+        <p>{movieDescription.sinopse}</p>
       </div>
 
       <div className="modal-description-director">
         <label>Director</label>
-        <span>Chirs Watts</span>
+        <span>{movieDescription.director}</span>
       </div>
 
       <div className="modal-description-data">
         <div className="modal-description-data-genres">
           <label>Genres:</label>
-          <ul>
-            <li>Adventure</li>
-            <li>Family</li>
-            <li>Fantasy</li>
-          </ul>
+          <span>{movieDescription.genres}</span>
         </div>
 
         <div className="modal-description-data-languages">
           <label>Languages:</label>
-          <ul>
-            <li>Portuguese</li>
-            <li>English</li>
-          </ul>
+          <span>{movieDescription.languages}</span>
         </div>
 
         <div className="modal-description-data-subtitles">
           <label>Subtitles:</label>
-          <ul>
-            <li>Portuguese</li>
-            <li>English</li>
-          </ul>
+          <span>{movieDescription.subtitles}</span>
         </div>
 
-        <label className="modal-description-data-label">Year 2002</label>
+        <label className="modal-description-data-label">
+          Year {movieDescription.release}
+        </label>
       </div>
 
       <div className="modal-description-links">
@@ -92,7 +95,7 @@ const ModalDescription: React.FC<Props> = ({
           <a href="https://google.com">
             <FaImdb size={32} color="#eeeeee" />
           </a>
-          <span>8.9</span>
+          <span>{movieDescription.reviews}</span>
           <BsStarFill size={32} color="#ffff00" />
         </div>
       </div>
