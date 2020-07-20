@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "react-modal";
 import { AiFillCloseCircle } from "react-icons/ai";
+
+import api from "../../service/api";
 
 import "./styles.css";
 
@@ -10,6 +12,15 @@ interface Props {
 }
 
 const ModalAdd: React.FC<Props> = ({ modalAddOpen, setModalAddOpen }) => {
+  const [urlImage, setUrlImage] = useState("");
+  const [title, setTitle] = useState("");
+  const [sinopse, setSinopse] = useState("");
+  const [director, setDirector] = useState("");
+  const [genres, setGenres] = useState("");
+  const [languages, setLanguages] = useState("");
+  const [subtitles, setSubtitles] = useState("");
+  const [release, setRelease] = useState("");
+
   const customStyle = {
     content: {
       width: "320px",
@@ -25,8 +36,20 @@ const ModalAdd: React.FC<Props> = ({ modalAddOpen, setModalAddOpen }) => {
     setModalAddOpen(false);
   }
 
-  function handleAddMovie() {
-    /// .... code
+  async function submitAddMovie() {
+    const data = {
+      id: 7,
+      title,
+      sinopse,
+      director,
+      genres,
+      languages,
+      subtitles,
+      release,
+      reviews: 0,
+    };
+
+    await api.post("/movies", data);
 
     setModalAddOpen(false);
   }
@@ -43,17 +66,57 @@ const ModalAdd: React.FC<Props> = ({ modalAddOpen, setModalAddOpen }) => {
         <AiFillCloseCircle size={32} color="#eeeeee" />
       </button>
 
-      <form className="modal-movie-add-data">
-        <input placeholder="URL://Image" type="text" />
-        <input placeholder="Title movie" type="text" />
-        <input placeholder="Sinopse" type="text" />
-        <input placeholder="Director" type="text" />
-        <input placeholder="Genres" type="text" />
-        <input placeholder="Languages" type="text" />
-        <input placeholder="Subtitles" type="text" />
-        <input placeholder="Year Release" type="text" />
+      <form onSubmit={submitAddMovie} className="modal-movie-add-data">
+        <input
+          placeholder="URL://Image"
+          type="text"
+          value={urlImage}
+          onChange={(e) => setUrlImage(e.target.value)}
+        />
+        <input
+          placeholder="Title movie"
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <input
+          placeholder="Sinopse"
+          type="text"
+          value={sinopse}
+          onChange={(e) => setSinopse(e.target.value)}
+        />
+        <input
+          placeholder="Director"
+          type="text"
+          value={director}
+          onChange={(e) => setDirector(e.target.value)}
+        />
+        <input
+          placeholder="Genres"
+          type="text"
+          value={genres}
+          onChange={(e) => setGenres(e.target.value)}
+        />
+        <input
+          placeholder="Languages"
+          type="text"
+          value={languages}
+          onChange={(e) => setLanguages(e.target.value)}
+        />
+        <input
+          placeholder="Subtitles"
+          type="text"
+          value={subtitles}
+          onChange={(e) => setSubtitles(e.target.value)}
+        />
+        <input
+          placeholder="Year Release"
+          type="text"
+          value={release}
+          onChange={(e) => setRelease(e.target.value)}
+        />
 
-        <button onClick={handleCloseModal}>ADD</button>
+        <button type="submit">ADD</button>
       </form>
     </Modal>
   );
