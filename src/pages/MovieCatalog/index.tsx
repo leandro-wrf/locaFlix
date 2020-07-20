@@ -53,8 +53,9 @@ const MovieCatalog = () => {
     setMovieDescription(movie);
   }
 
-  function handleOpenModalEdit() {
+  function handleOpenModalEdit(movie: Movie) {
     setModalEditOpen(true);
+    setMovieDescription(movie);
   }
 
   async function handleDeleteMovie(movieID: number) {
@@ -73,6 +74,7 @@ const MovieCatalog = () => {
       <ModalEdit
         modalEditOpen={modalEditOpen}
         setModalEditOpen={setModalEditOpen}
+        movieDescription={movieDescription}
       />
       <main className="movie-catalog">
         <ul>
@@ -99,7 +101,7 @@ const MovieCatalog = () => {
                   />
                 </button>
 
-                <button onClick={handleOpenModalEdit}>
+                <button onClick={() => handleOpenModalEdit(movie)}>
                   <BsPencilSquare size={24} color="#eeeeee" />
                 </button>
               </div>
