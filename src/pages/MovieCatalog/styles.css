@@ -10,6 +10,38 @@
 
 .movie-catalog ul {
   list-style: none;
+
+  display: flex;
+  justify-content: center;
+}
+
+.movie-catalog-desktop {
+  list-style: none;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.movie-catalog-desktop li {
+  width: 300px;
+
+  margin: 16px;
+}
+
+.movie-catalog-desktop-sinopse {
+  color: #eeeeee;
+
+  width: 100%;
+
+  font-size: 13px;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow-y: hidden;
 }
 
 .movie-catalog ul li {
@@ -64,12 +96,7 @@
   font-family: "Ubuntu", sans-serif;
   font-weight: 500;
 
-  overflow: hidden;
-
   text-align: justify;
-  text-overflow: ellipsis;
-
-  display: flex;
 }
 
 .box-movie-description-icons {

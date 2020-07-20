@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BsTrashFill, BsPencilSquare } from "react-icons/bs";
+import { useMediaQuery } from "react-responsive";
 
 import Header from "../../components/Header";
 import ModalDescription from "../../components/ModalDescription";
@@ -38,6 +39,14 @@ const MovieCatalog = () => {
   const [modalOpenDescription, setModalDescriptionOpen] = useState(false);
   const [modalEditOpen, setModalEditOpen] = useState(false);
 
+  const isDesktop = useMediaQuery({
+    query: "(min-device-width: 1024px)",
+  });
+
+  const isMobile = useMediaQuery({
+    query: "(orientation: portrait)",
+  });
+
   useEffect(() => {
     async function loadMovies() {
       const response = await api.get("/movies");
@@ -65,50 +74,104 @@ const MovieCatalog = () => {
 
   return (
     <div>
-      <Header movies={movies} setMovies={setMovies} />
-      <ModalDescription
-        modalDescriptionOpen={modalOpenDescription}
-        setModalDescriptionOpen={setModalDescriptionOpen}
-        movieDescription={movieDescription}
-      />
-      <ModalEdit
-        modalEditOpen={modalEditOpen}
-        setModalEditOpen={setModalEditOpen}
-        movieDescription={movieDescription}
-      />
-      <main className="movie-catalog">
-        <ul>
-          {movies.map((movie) => (
-            <li key={movie.id}>
-              <button
-                className="box-movie-catalog"
-                onClick={() => handleOpenModalDescription(movie)}
-              >
-                <img src={harrypotter} alt="harry-potter" />
+      {isDesktop && (
+        <>
+          <Header movies={movies} setMovies={setMovies} />
+          <ModalDescription
+            modalDescriptionOpen={modalOpenDescription}
+            setModalDescriptionOpen={setModalDescriptionOpen}
+            movieDescription={movieDescription}
+          />
+          <ModalEdit
+            modalEditOpen={modalEditOpen}
+            setModalEditOpen={setModalEditOpen}
+            movieDescription={movieDescription}
+          />
+          <main className="movie-catalog">
+            <ul className="movie-catalog-desktop">
+              {movies.map((movie) => (
+                <li key={movie.id}>
+                  <button
+                    className="box-movie-catalog"
+                    onClick={() => handleOpenModalDescription(movie)}
+                  >
+                    <img src={harrypotter} alt="harry-potter" />
 
-                <div className="box-movie-description">
-                  <label>{movie.title}</label>
-                  <p>{movie.sinopse}</p>
-                </div>
-              </button>
+                    <div className="box-movie-description">
+                      <label>{movie.title}</label>
+                      <p className="movie-catalog-desktop-sinopse">
+                        {movie.sinopse}
+                      </p>
+                    </div>
+                  </button>
 
-              <div className="box-movie-description-icons">
-                <button onClick={() => handleDeleteMovie(movie.id)}>
-                  <BsTrashFill
-                    className="button-tmp"
-                    size={24}
-                    color="#eeeeee"
-                  />
-                </button>
+                  <div className="box-movie-description-icons">
+                    <button onClick={() => handleDeleteMovie(movie.id)}>
+                      <BsTrashFill
+                        className="button-tmp"
+                        size={24}
+                        color="#eeeeee"
+                      />
+                    </button>
 
-                <button onClick={() => handleOpenModalEdit(movie)}>
-                  <BsPencilSquare size={24} color="#eeeeee" />
-                </button>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </main>
+                    <button onClick={() => handleOpenModalEdit(movie)}>
+                      <BsPencilSquare size={24} color="#eeeeee" />
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </main>
+        </>
+      )}
+      {isMobile && (
+        <>
+          <Header movies={movies} setMovies={setMovies} />
+          <ModalDescription
+            modalDescriptionOpen={modalOpenDescription}
+            setModalDescriptionOpen={setModalDescriptionOpen}
+            movieDescription={movieDescription}
+          />
+          <ModalEdit
+            modalEditOpen={modalEditOpen}
+            setModalEditOpen={setModalEditOpen}
+            movieDescription={movieDescription}
+          />
+          <main className="movie-catalog">
+            <ul>
+              {movies.map((movie) => (
+                <li key={movie.id}>
+                  <button
+                    className="box-movie-catalog"
+                    onClick={() => handleOpenModalDescription(movie)}
+                  >
+                    <img src={harrypotter} alt="harry-potter" />
+
+                    <div className="box-movie-description">
+                      <label>{movie.title}</label>
+                      <p>{movie.sinopse}</p>
+                    </div>
+                  </button>
+
+                  <div className="box-movie-description-icons">
+                    <button onClick={() => handleDeleteMovie(movie.id)}>
+                      <BsTrashFill
+                        className="button-tmp"
+                        size={24}
+                        color="#eeeeee"
+                      />
+                    </button>
+
+                    <button onClick={() => handleOpenModalEdit(movie)}>
+                      <BsPencilSquare size={24} color="#eeeeee" />
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </main>
+        </>
+      )}
     </div>
   );
 };
