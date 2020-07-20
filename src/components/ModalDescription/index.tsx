@@ -4,32 +4,22 @@ import { BsStarFill } from "react-icons/bs";
 import { FaImdb } from "react-icons/fa";
 import { AiFillCloseCircle } from "react-icons/ai";
 
-import "./styles.css";
+import { Movie } from "../../types/typesApplication";
 
-interface Movie {
-  id: number;
-  title: string;
-  sinopse: string;
-  director: string;
-  genres: string;
-  languages: string;
-  subtitles: string;
-  release: number;
-  reviews: number;
-}
+import "./styles.css";
 
 interface Props {
   movieDescription: Movie;
-  modalDescriptionOpen: boolean;
-  setModalDescriptionOpen: any;
+  modalDescriptionShow: boolean;
+  setModalDescriptionShow: any;
 }
 
 const ModalDescription: React.FC<Props> = ({
   movieDescription,
-  modalDescriptionOpen,
-  setModalDescriptionOpen,
+  modalDescriptionShow,
+  setModalDescriptionShow,
 }) => {
-  const customStyles = {
+  const customStyleModalDescription = {
     content: {
       width: "320px",
       height: "600px",
@@ -43,16 +33,16 @@ const ModalDescription: React.FC<Props> = ({
   };
 
   function handleCloseModal() {
-    setModalDescriptionOpen(false);
+    setModalDescriptionShow(false);
   }
 
   return (
     <Modal
       className="modal-description"
       overlayClassName="overlayModal"
-      isOpen={modalDescriptionOpen}
+      isOpen={modalDescriptionShow}
       contentLabel="Description"
-      style={customStyles}
+      style={customStyleModalDescription}
       ariaHideApp={false}
     >
       <div className="modal-description-center">
@@ -60,7 +50,7 @@ const ModalDescription: React.FC<Props> = ({
         <button onClick={handleCloseModal}>
           <AiFillCloseCircle size={32} color="#eeeeee" />
         </button>
-        <p>{movieDescription.sinopse}</p>
+        <p>{movieDescription.description}</p>
       </div>
 
       <div className="modal-description-director">
@@ -93,7 +83,7 @@ const ModalDescription: React.FC<Props> = ({
         <button>LocarFilme</button>
 
         <div className="modal-description-links-icons">
-          <a href="https://google.com">
+          <a href={movieDescription.urlImdb}>
             <FaImdb size={32} color="#eeeeee" />
           </a>
           <span>{movieDescription.reviews}</span>
