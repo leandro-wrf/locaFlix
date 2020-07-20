@@ -7,21 +7,23 @@ import api from "../../service/api";
 import "./styles.css";
 
 interface Props {
-  modalAddOpen: boolean;
-  setModalAddOpen: any;
+  modalAddShow: boolean;
+  setModalAddShow: any;
 }
 
-const ModalAdd: React.FC<Props> = ({ modalAddOpen, setModalAddOpen }) => {
+const ModalAdd: React.FC<Props> = ({ modalAddShow, setModalAddShow }) => {
   const [urlImage, setUrlImage] = useState("");
   const [title, setTitle] = useState("");
-  const [sinopse, setSinopse] = useState("");
+  const [description, setDescription] = useState("");
   const [director, setDirector] = useState("");
   const [genres, setGenres] = useState("");
   const [languages, setLanguages] = useState("");
   const [subtitles, setSubtitles] = useState("");
+  const [urlImdb, setUrlImdb] = useState("");
   const [release, setRelease] = useState("");
+  const [reviews, setReviews] = useState("");
 
-  const customStyle = {
+  const customStyleModalAdd = {
     content: {
       width: "320px",
       marginTop: "32px",
@@ -33,33 +35,35 @@ const ModalAdd: React.FC<Props> = ({ modalAddOpen, setModalAddOpen }) => {
   };
 
   function handleCloseModal() {
-    setModalAddOpen(false);
+    setModalAddShow(false);
   }
 
   async function submitAddMovie() {
     const data = {
       id: 7,
+      urlImage,
       title,
-      sinopse,
+      description,
       director,
       genres,
       languages,
       subtitles,
+      urlImdb,
       release,
-      reviews: 0,
+      reviews,
     };
 
     await api.post("/movies", data);
 
-    setModalAddOpen(false);
+    setModalAddShow(false);
   }
 
   return (
     <Modal
       className="modal-movie-add"
       overlayClassName="modal-overlay"
-      style={customStyle}
-      isOpen={modalAddOpen}
+      style={customStyleModalAdd}
+      isOpen={modalAddShow}
       ariaHideApp={false}
     >
       <h3>Add Movie</h3>
@@ -81,10 +85,10 @@ const ModalAdd: React.FC<Props> = ({ modalAddOpen, setModalAddOpen }) => {
           onChange={(e) => setTitle(e.target.value)}
         />
         <input
-          placeholder="Sinopse"
+          placeholder="Description"
           type="text"
-          value={sinopse}
-          onChange={(e) => setSinopse(e.target.value)}
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
         />
         <input
           placeholder="Director"
@@ -111,10 +115,22 @@ const ModalAdd: React.FC<Props> = ({ modalAddOpen, setModalAddOpen }) => {
           onChange={(e) => setSubtitles(e.target.value)}
         />
         <input
+          placeholder="URL IMDB"
+          type="text"
+          value={urlImdb}
+          onChange={(e) => setUrlImdb(e.target.value)}
+        />
+        <input
           placeholder="Year Release"
           type="text"
           value={release}
           onChange={(e) => setRelease(e.target.value)}
+        />
+        <input
+          placeholder="Reviews"
+          type="text"
+          value={reviews}
+          onChange={(e) => setReviews(e.target.value)}
         />
 
         <button type="submit">ADD</button>
