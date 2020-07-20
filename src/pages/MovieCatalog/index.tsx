@@ -65,7 +65,7 @@ const MovieCatalog = () => {
 
   return (
     <div>
-      <Header />
+      <Header movies={movies} setMovies={setMovies} />
       <ModalDescription
         modalDescriptionOpen={modalOpenDescription}
         setModalDescriptionOpen={setModalDescriptionOpen}
