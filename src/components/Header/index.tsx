@@ -25,9 +25,23 @@ const Header: React.FC<Props> = ({ movies, setMovies }) => {
 
   async function handleSearch() {
     if (search.trim()) {
-      const response = await api.get(`/movies?title=${search}`);
+      const response = await api.get("/movies");
+      const newSearch = search.toLowerCase();
 
-      setMovies(response.data);
+      const newResponse = response.data.filter((movie: Movie):
+        | Movie
+        | undefined => {
+        if (!movie.title.indexOf(newSearch)) {
+          return {
+            ...movie,
+          };
+        }
+
+        setSearch("");
+        return undefined;
+      });
+
+      setMovies(newResponse);
     }
 
     if (componentActive && !search.trim()) {
