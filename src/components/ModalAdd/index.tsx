@@ -40,7 +40,7 @@ const ModalAdd: React.FC<Props> = ({ modalAddShow, setModalAddShow }) => {
 
   async function submitAddMovie() {
     const data = {
-      id: 7,
+      id: Math.random(),
       urlImage,
       title,
       description,
@@ -73,60 +73,70 @@ const ModalAdd: React.FC<Props> = ({ modalAddShow, setModalAddShow }) => {
 
       <form onSubmit={submitAddMovie} className="modal-movie-add-data">
         <input
+          required={true}
           placeholder="URL://Image"
-          type="text"
+          type="url"
           value={urlImage}
           onChange={(e) => setUrlImage(e.target.value)}
         />
         <input
+          required={true}
           placeholder="Title movie"
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value.toLowerCase())}
         />
         <input
+          required={true}
           placeholder="Description"
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value.toLowerCase())}
         />
         <input
+          required={true}
           placeholder="Director"
           type="text"
           value={director}
           onChange={(e) => setDirector(e.target.value.toLowerCase())}
         />
         <input
+          required={true}
           placeholder="Genres"
           type="text"
           value={genres}
           onChange={(e) => setGenres(e.target.value.toLowerCase())}
         />
         <input
+          required={true}
           placeholder="Languages"
           type="text"
           value={languages}
           onChange={(e) => setLanguages(e.target.value.toLowerCase())}
         />
         <input
+          required={true}
           placeholder="Subtitles"
           type="text"
           value={subtitles}
           onChange={(e) => setSubtitles(e.target.value.toLowerCase())}
         />
         <input
+          required={true}
           placeholder="URL IMDB"
-          type="text"
+          type="url"
           value={urlImdb}
           onChange={(e) => setUrlImdb(e.target.value)}
         />
         <input
+          required={true}
           placeholder="Year Release"
           type="text"
           value={release}
           onChange={(e) => setRelease(e.target.value.toLowerCase())}
         />
         <input
+          required={true}
           placeholder="Reviews"
           type="text"
           value={reviews}

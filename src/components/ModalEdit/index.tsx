@@ -80,7 +80,7 @@ const ModalEdit: React.FC<Props> = ({
       <form onSubmit={handleEditMovie} className="modal-movie-edit-data">
         <input
           placeholder={movieDescription.urlImage}
-          type="text"
+          type="url"
           value={urlImage}
           onChange={(e) => setUrlImage(e.target.value)}
         />
@@ -122,7 +122,7 @@ const ModalEdit: React.FC<Props> = ({
         />
         <input
           placeholder={movieDescription.urlImdb}
-          type="text"
+          type="url"
           value={urlImdb}
           onChange={(e) => setUrlImdb(e.target.value)}
         />
