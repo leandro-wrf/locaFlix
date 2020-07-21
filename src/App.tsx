@@ -5,10 +5,6 @@ import MovieCatalogMobile from "./pages/MovieCatalogMobile";
 import MovieCatalogDesktop from "./pages/MovieCatalogDesktop";
 
 function App() {
-  const isDesktop = useMediaQuery({
-    query: "(max-device-width: 1447px)",
-  });
-
   const isMobile = useMediaQuery({
     query: "(orientation: portrait)",
   });
