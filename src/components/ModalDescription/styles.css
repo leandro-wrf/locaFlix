@@ -38,6 +38,7 @@
 
   font-family: "Righteous", cursive;
 
+  text-transform: capitalize;
   text-align: center;
 }
 
@@ -60,6 +61,7 @@
 
   overflow: hidden;
   text-overflow: ellipsis;
+  text-transform: capitalize;
   text-align: justify;
 }
 
@@ -71,7 +73,7 @@
   align-items: center;
 }
 
-.modal-description-director {
+.modal-description-director label {
   color: #eeeeee;
 
   font-family: "Ubuntu", sans-serif;
@@ -86,6 +88,8 @@
 
   font-family: "Ubuntu", sans-serif;
   font-size: 18px;
+
+  text-transform: capitalize;
 }
 
 .modal-description-data {
@@ -118,25 +122,6 @@
   font-weight: bold;
 }
 
-/*.modal-description-data-genres ul,
-.modal-description-data-languages ul,
-.modal-description-data-subtitles ul {
-  list-style: none;
-
-  display: flex;
-  flex-direction: row;
-}*/
-
-/*.modal-description-data-genres ul li,
-.modal-description-data-languages ul li,
-.modal-description-data-subtitles ul li {
-  color: #eeeeee;
-
-  margin-right: 4px;
-
-  font-family: "Ubuntu", sans-serif;
-  font-size: 14px;
-}*/
 .modal-description-data-genres span,
 .modal-description-data-languages span,
 .modal-description-data-subtitles span {
@@ -144,6 +129,8 @@
 
   font-family: "Ubuntu", sans-serif;
   font-size: 14px;
+
+  text-transform: capitalize;
 }
 
 .modal-description-data-label {
