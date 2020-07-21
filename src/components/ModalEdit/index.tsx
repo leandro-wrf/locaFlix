@@ -1,4 +1,4 @@
-import React, { useState, SetStateAction } from "react";
+import React, { useState } from "react";
 import Modal from "react-modal";
 import { AiFillCloseCircle } from "react-icons/ai";
 
@@ -88,37 +88,37 @@ const ModalEdit: React.FC<Props> = ({
           placeholder={movieDescription.title}
           type="text"
           value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => setTitle(e.target.value.toLowerCase())}
         />
         <input
           placeholder={movieDescription.description}
           type="text"
           value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={(e) => setDescription(e.target.value.toLowerCase())}
         />
         <input
           placeholder={movieDescription.director}
           type="text"
           value={director}
-          onChange={(e) => setDirector(e.target.value)}
+          onChange={(e) => setDirector(e.target.value.toLowerCase())}
         />
         <input
           placeholder={movieDescription.genres}
           type="text"
           value={genres}
-          onChange={(e) => setGenres(e.target.value)}
+          onChange={(e) => setGenres(e.target.value.toLowerCase())}
         />
         <input
           placeholder={movieDescription.languages}
           type="text"
           value={languages}
-          onChange={(e) => setLanguages(e.target.value)}
+          onChange={(e) => setLanguages(e.target.value.toLowerCase())}
         />
         <input
           placeholder={movieDescription.subtitles}
           type="text"
           value={subtitles}
-          onChange={(e) => setSubtitles(e.target.value)}
+          onChange={(e) => setSubtitles(e.target.value.toLowerCase())}
         />
         <input
           placeholder={movieDescription.urlImdb}
@@ -127,10 +127,10 @@ const ModalEdit: React.FC<Props> = ({
           onChange={(e) => setUrlImdb(e.target.value)}
         />
         <input
-          placeholder={String(movieDescription.release)}
+          placeholder={movieDescription.release}
           type="text"
           value={release}
-          onChange={(e) => setRelease(e.target.value)}
+          onChange={(e) => setRelease(e.target.value.toLowerCase())}
         />
 
         <button type="submit">UPDATE</button>
