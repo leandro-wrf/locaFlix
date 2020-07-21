@@ -1,5 +1,15 @@
 <h1 align="center">Locaflix :ghost:</h1>
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Projeto-Locaflix-5f85db" alt="badge-project"/>
+  <img src="https://img.shields.io/badge/Stack-ReactJS-blue" alt="reactjs" />
+  <img src="https://img.shields.io/badge/licença-MIT-26282b" alt="license">
+</p>
+
+<p align="center">
+  <img src="image-project/github-locaflix.png" alt="project"/>
+</p>
+
 <h3>:computer: Tecnologias utilizadas</h3>
 
 <ul>
