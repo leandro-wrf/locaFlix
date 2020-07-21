@@ -26,7 +26,11 @@
 .box-movie-catalog-desktop {
   background-color: #26282b;
 
+  width: 100%;
+
   padding: 8px;
+
+  margin-bottom: 16px;
 
   border-radius: 8px;
   border-style: none;
@@ -55,6 +59,8 @@
   margin-bottom: 16px;
 
   font-family: "Righteous", cursive;
+
+  text-transform: capitalize;
   text-align: left;
 }
 
@@ -67,6 +73,7 @@
   font-family: "Ubuntu", sans-serif;
   font-weight: 500;
 
+  text-transform: capitalize;
   text-align: justify;
 
   display: -webkit-box;
