@@ -82,37 +82,37 @@ const ModalAdd: React.FC<Props> = ({ modalAddShow, setModalAddShow }) => {
           placeholder="Title movie"
           type="text"
           value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => setTitle(e.target.value.toLowerCase())}
         />
         <input
           placeholder="Description"
           type="text"
           value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          onChange={(e) => setDescription(e.target.value.toLowerCase())}
         />
         <input
           placeholder="Director"
           type="text"
           value={director}
-          onChange={(e) => setDirector(e.target.value)}
+          onChange={(e) => setDirector(e.target.value.toLowerCase())}
         />
         <input
           placeholder="Genres"
           type="text"
           value={genres}
-          onChange={(e) => setGenres(e.target.value)}
+          onChange={(e) => setGenres(e.target.value.toLowerCase())}
         />
         <input
           placeholder="Languages"
           type="text"
           value={languages}
-          onChange={(e) => setLanguages(e.target.value)}
+          onChange={(e) => setLanguages(e.target.value.toLowerCase())}
         />
         <input
           placeholder="Subtitles"
           type="text"
           value={subtitles}
-          onChange={(e) => setSubtitles(e.target.value)}
+          onChange={(e) => setSubtitles(e.target.value.toLowerCase())}
         />
         <input
           placeholder="URL IMDB"
@@ -124,13 +124,13 @@ const ModalAdd: React.FC<Props> = ({ modalAddShow, setModalAddShow }) => {
           placeholder="Year Release"
           type="text"
           value={release}
-          onChange={(e) => setRelease(e.target.value)}
+          onChange={(e) => setRelease(e.target.value.toLowerCase())}
         />
         <input
           placeholder="Reviews"
           type="text"
           value={reviews}
-          onChange={(e) => setReviews(e.target.value)}
+          onChange={(e) => setReviews(e.target.value.toLowerCase())}
         />
 
         <button type="submit">ADD</button>
